@@ -6,7 +6,6 @@ class Solution:
         for num in nums:
             prev +=num
             cum_sum.append(prev)
-        print(min(cum_sum))
         if min(cum_sum) <= 0:
             return abs(min(cum_sum)) + 1
         else:
