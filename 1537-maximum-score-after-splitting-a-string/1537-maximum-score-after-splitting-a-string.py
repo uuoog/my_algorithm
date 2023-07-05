@@ -3,7 +3,5 @@ class Solution:
         answer = []
         c = [c for c in s]
         for i in range(1, len(c)):
-            c[:i].count("0")
-            c[i:].count("1")
             answer.append(c[:i].count("0") + c[i:].count("1"))
         return max(answer)
