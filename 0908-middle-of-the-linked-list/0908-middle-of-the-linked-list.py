@@ -8,12 +8,11 @@ class Solution:
         # 순회 2 번???
         cur = head
         cnt = 0
-        i = 0
         while cur:
             cnt += 1
             cur = cur.next
-            n = cnt//2
+            mid = cnt//2
         cur = head
-        for i in range(n):
+        for i in range(mid):
             cur = cur.next
         return cur
