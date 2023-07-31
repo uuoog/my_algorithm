@@ -6,15 +6,17 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        answer = 0
-        def recursion(node, depth):
-            nonlocal answer
-            if node is None:
-                return
-            cur_depth = depth + 1
-            answer = max(answer, cur_depth)
-            recursion(node.left, cur_depth)
-            recursion(node.right, cur_depth)
+        from collections import deque
 
-        recursion(root, 0)
-        return answer
+        q = deque([(root, 1)])
+        if not root:
+            return 0
+
+        while q:
+            cur, level = q.popleft()
+            
+            if cur.left:
+                q.append((cur.left, level + 1))
+            if cur.right:
+                q.append((cur.right, level + 1))
+        return level
