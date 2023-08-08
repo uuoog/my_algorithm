@@ -14,8 +14,4 @@ class Solution:
                 if key not in unlocked:
                     q.append(key)
 
-        if len(unlocked) == len(rooms):
-            return True
-        else:
-            return False
-
+        return len(unlocked) == len(rooms)
