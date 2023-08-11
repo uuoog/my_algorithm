@@ -6,21 +6,18 @@
 #         self.right = right
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        answer = 0
-
-        if not root:
-            return answer
-
         from collections import deque
-        q = deque([(root, root.val)])
+
+        q = deque([(root, [])])
+        answer = 1
 
         while q:
-            cur_node, max_ = q.popleft()
-            if cur_node.val >= max_:
+            cur_node, path = q.popleft()
+            if path and cur_node.val >= max(path):
                 answer += 1
-                max_ = cur_node.val
+
             if cur_node.left:
-                q.append((cur_node.left, max_))
+                q.append((cur_node.left, path +[cur_node.val]))
             if cur_node.right:
-                q.append((cur_node.right, max_))
+                q.append((cur_node.right, path +[cur_node.val]))
         return answer
