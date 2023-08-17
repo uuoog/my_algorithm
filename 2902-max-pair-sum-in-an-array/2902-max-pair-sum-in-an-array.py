@@ -10,6 +10,9 @@ class Solution:
                 num_b_arr = [int(c) for c in str(num_b)]
 
                 if max(num_a_arr) == max(num_b_arr):
-                    ans = max(ans, int(''.join(map(str, num_a_arr))) + int(''.join(map(str, num_b_arr))))
+                    ans = max(ans, num_a + num_b)
+                # if max(num_a_arr) != max(num_b_arr):
+                #     continue
+                # answer = max(answer , num_a + num_b)
 
         return ans
